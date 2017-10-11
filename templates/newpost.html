@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method='post'>
+        <label>
+            Title for your new blog:
+            <input type="text" name='title' />
+        </label>
+        <label>
+            Your new blog:
+                <input type="text" name='entry' />
+            </label>        
+        <input type="submit" value='Add Entry' />
+    </form>
+
+{% endblock %}
