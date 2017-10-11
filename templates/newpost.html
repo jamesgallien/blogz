@@ -5,12 +5,20 @@
     <form method='post'>
         <label>
             Title for your new blog:
-            <input type="text" name='title' />
+            {% if blog_title|length != 0 %}
+                <input type="text" name='title' value="{{blog_title}}"/>
+            {% else %}
+                <input type="text" name='title'/>
+            {% endif %}
         </label>
         <label>
             Your new blog:
-                <input type="text" name='entry' />
-            </label>        
+            {% if blog_entry|length != 0 %}
+                <input type="text" name='entry' value="{{blog_entry}}"/>
+            {% else %}
+                <input type="text" name='entry'/>
+            {% endif %}
+        </label>        
         <input type="submit" value='Add Entry' />
     </form>
 

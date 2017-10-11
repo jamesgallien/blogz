@@ -2,30 +2,30 @@
 <html>
     <head>
         <title>{{title}}</title>
+        <style>
+            .error {    
+                color: red;    
+            }    
+        </style> 
     </head>
-    <style>
-        .error {    
-            color: red;    
-        }    
-    </style>    
-<body>
+    <body>
 
-    <a href='/blog'>Main Blog Page</a>
-    <a href='/newpost'>Add a Blog Entry</a>
+        <a href='/blog'>Main Blog Page</a>
+        <a href='/newpost'>Add a Blog Entry</a>
 
-    <h1>{{title}}</h1>
+        <h1>{{title}}</h1>
 
-    {% with messages = get_flashed_messages(with_categories=True) %}
-    <ul>
-        {% for category,message in messages %}
-            <li class="{{category}}">{{message}}</li>
-        {% endfor %}
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
 
-    </ul>
-    {% endwith %}
+        </ul>
+        {% endwith %}
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-</body>
+    </body>
 </html>
