@@ -14,9 +14,9 @@
         <label>
             Your new blog:
             {% if blog_entry|length != 0 %}
-                <input type="text" name='entry' value="{{blog_entry}}"/>
+                <textarea name='entry' value="{{blog_entry}}"></textarea>
             {% else %}
-                <input type="text" name='entry'/>
+                <textarea name='entry'></textarea>
             {% endif %}
         </label>        
         <input type="submit" value='Add Entry' />

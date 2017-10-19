@@ -4,6 +4,8 @@
 
     {% if request.args %}
             {{blog_entry}}
+            <br>
+            Written by: <a href='/blog?user={{user.id}}'>{{user.username}}</a>
 
     {% elif blogs|length == 0 %}
             <p>No blogs yet</p>
@@ -13,7 +15,14 @@
                 <a href='/blog?id={{blog.id}}'>{{blog.title}}</a>
                 <br>
                 {{blog.entry}}
-                <hr>
+                <br>
+                {% for user in users %}
+                        {% if user.id == blog.owner_id %}
+                                Written by: <a href='/blog?user={{user.id}}'>{{user.username}}</a>
+                        {% endif %}
+                {% endfor %}
+                <br>
+                <br>
             {% endfor %}    
         
     {% endif %}

@@ -1,0 +1,54 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <title>User Signup</title>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Signup</h1>
+        <form action="/signup" method="post">
+            <label>Username
+                {% if username|length != 0 %}    
+                    <input type="text" name='username' value="{{username}}"/>
+                {% else %}
+                    <input type="text" name="username" />
+                {% endif %}
+            </label>
+
+            {% if username_error|length != 0 %}
+                {{username_error}}
+            {% endif %}
+
+            <br>
+
+            <label>Password
+                <input type="password" name="password" />
+            </label>
+            
+                {% if password_error|length != 0 %}    
+                    {{password_error}}
+                {% endif %}
+
+            <br>
+
+            <label>Verify password
+                <input type="password" name="verify_password" />
+            </label>
+
+                {% if p_verify_error|length != 0 %}    
+                    {{p_verify_error}}
+                {% endif %}
+
+            <br>
+
+            <input type="submit" value="Submit" />
+            
+        </form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- first if should come out somehow -->
+
+    {% if request.args %}
+        {{blog_entry}}
+
+    {% elif users|length == 0 %}
+        <p>No authors yet</p>
+
+    {% else %}
+        {% for user in users %}    
+            <a href='/blog?user={{user.id}}'>{{user.username}}</a>
+            <br>
+        {% endfor %}    
+
+    {% endif %}
+
+{% endblock %}
